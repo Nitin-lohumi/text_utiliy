@@ -1,0 +1,44 @@
+h2{
+    color:green;
+    text-align: center;
+}
+.textbox{
+    display: flex;
+    flex-direction: column;
+}
+textarea{
+    font-size: 23px;
+    resize: none;
+}
+.buttons{
+    padding:10px 0;
+    margin:10px 5px;
+}
+button{
+    padding:5px;
+    margin:4px;
+}
+.para{
+    /* background-color: antiquewhite; */
+    padding:10px 5px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.button_move{
+    outline: none;
+    border:none;
+    background: none;
+    font-size: 2rem;
+}
+h1{
+    text-align: center;
+}
+.saved_data{
+    font-size: 20px;
+    color:grey;
+    border:1px solid rgb(103, 246, 0);
+}
