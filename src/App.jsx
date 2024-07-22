@@ -1,14 +1,9 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import Saved_data from './component/Saved_data';
 function App() {
   const [change, setChange] = useState();
   const [text, setText] = useState("");
   const [submitText,setSubmit] = useState();
-  const [items, setItems] = useState();
-  const [count, setCount] = useState(0);
-  const [click, setclick] = useState(0);
-  const [hide ,sethide] = useState('move the button down');
   function uppercase(){
     let upper = text.toUpperCase();
     setText(upper);
@@ -31,17 +26,6 @@ function App() {
     setSubmit();
     setText('');
   }
-  const save =() =>{
-    if(text!=""){
-    localStorage.setItem(`item ${count}`,items);
-    localStorage.setItem(`${count}`, count);
-    let newCount = localStorage.getItem(`${count}`);
-    setCount(parseInt(newCount)+1);
-    setText(' ');
-  }
-  refresh();
-    // alert("this paara is saved !")
-  }
   useEffect(()=>{
   if(change=="uppercase"){
     uppercase();
@@ -49,22 +33,9 @@ function App() {
   else if(change=="lowercase"){
     lowercase();
   }
-  setItems(text);
+  // setItems([text]);
   },[text,setText]);
 
-  function render (){
-    if(click==0){
-      setclick(1);
-    }
-    else{
-      setclick(0);
-    }
-  }
-  
-  function removebtn(){
-    console.log("mouse moving");
-    sethide(' ');
-  }
   return (
     <>
      <h2>
@@ -77,7 +48,7 @@ function App() {
        <button onClick={lowercase}> set to LowerCase</button>
       <button onClick={submit}>Submit To read</button>
       <button onClick={refresh}>Refresh </button> 
-      <button onClick={save}> Save permanent</button>
+      {/* <button onClick={}> Save permanent</button> */}
       </div>
       <div>
         <h3>Maxium lenght text in text fild - {text?text.length:" 0 "}/500</h3>
@@ -88,18 +59,6 @@ function App() {
         </p>
       </div>
      </div>
-    <div>
-      <p>your text, whatever you save the texts they are shown here by clicking in this button </p>
-    <button onClick={render}>
-      your saved item
-    </button>
-    </div>
-     <button className='button_move' onMouseMove={removebtn}>
-     {click==0?"":hide}
-     </button>
-    <div>
-      {click==0?"":<Saved_data/>}
-    </div>
     </>
   )
 }
